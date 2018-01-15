@@ -14,8 +14,6 @@ import java.util.List;
 public class DataMatcher {
     private static final int MAX_WINDOW_SIZE = 10;
 
-    private List<Person> initialList;
-
     private List<Record> firstNameList = new ArrayList<>();
     private List<Record> lastNameList = new ArrayList<>();
     private List<Record> addressNameList = new ArrayList<>();
@@ -29,9 +27,11 @@ public class DataMatcher {
     @Getter
     private List<Integer> addressResults = new ArrayList<>();
 
-    public DataMatcher(List<Person> initial, List<Person> modified) {
-        initialList = initial;
-
+    /**
+     * Create a new instance that will create the keys used for sorting
+     * @param modified the list to be searched for duplicates
+     */
+    public DataMatcher(List<Person> modified) {
         modified.forEach(person -> {
             firstNameList.add(new Record(person.getFirstName(), person));
             lastNameList.add(new Record(person.getLastName(), person));
@@ -118,6 +118,9 @@ public class DataMatcher {
         }
     }
 
+    /**
+     * Placeholder class to keep all details regarding the address
+     */
     private static final class Address implements Comparable<Address> {
         private String street;
         private int streetNumber;

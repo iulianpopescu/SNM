@@ -22,7 +22,7 @@ public class Main {
         System.out.println("Total number of entries: " + alteredList.size());
         printLine();
 
-        DataMatcher dataMatcher = new DataMatcher(list, alteredList);
+        DataMatcher dataMatcher = new DataMatcher(alteredList);
         dataMatcher.matchDataUsingFirstNameKey();
         printResults(1, "first name", dataMatcher.getResultsFirstName());
 

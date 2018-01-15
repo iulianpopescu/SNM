@@ -50,6 +50,11 @@ public class Person {
         state = person.state;
     }
 
+    /**
+     * Check if the current instance and the given parameter are equal
+     * @param person to check for equality
+     * @return true if they are equal, false otherwise
+     */
     public boolean match(Person person) {
         int firstNameDiff = LevenshteinDistanceHelper.computeLevenshteinDistance(firstName, person.firstName);
         int lastNameDiff = LevenshteinDistanceHelper.computeLevenshteinDistance(lastName, person.lastName);
@@ -59,8 +64,21 @@ public class Person {
                 && matchAddress(person);
     }
 
+    /**
+     * Checks if the current instance and the given parameter have the same address
+     * @param person to check the address
+     * @return true if the addresses match, or false otherwise
+     */
     private boolean matchAddress(Person person) {
-        return streetNumber == person.streetNumber;
+        int stateLevDiff = LevenshteinDistanceHelper.computeLevenshteinDistance(state, person.state);
+        if (stateLevDiff <= 2) {
+            int cityLevDiff = LevenshteinDistanceHelper.computeLevenshteinDistance(city, person.city);
+            if (cityLevDiff <= 2) {
+                int streetLevDiff = LevenshteinDistanceHelper.computeLevenshteinDistance(street, person.street);
+                return streetLevDiff <= 3 && streetNumber == person.streetNumber;
+            }
+        }
+        return false;
     }
 
     @Override

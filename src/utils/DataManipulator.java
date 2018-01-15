@@ -8,6 +8,7 @@ import java.util.Random;
 
 /**
  * Created by iulian_popescu
+ * Use this class to alter the initial data by adding duplicates that may contain errors
  */
 public class DataManipulator {
     private List<Person> recordsList = new ArrayList<>();
@@ -22,6 +23,10 @@ public class DataManipulator {
         return recordsList;
     }
 
+    /**
+     * Add to the initial list of records a number between 30%-50% of new instances
+     * and add some errors in different duplicates
+     */
     private void duplicateRecords() {
         Random random = new Random();
         // Duplicate between 30% - 50% of the total number of records

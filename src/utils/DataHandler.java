@@ -12,11 +12,17 @@ import java.util.List;
 
 /**
  * Created by iulian_popescu
+ * Use this class to parse instances of @class Person from a file
  */
 public class DataHandler {
 
     private DataHandler() { }
 
+    /**
+     * Parses a file in format Json and returns a list of Person objects
+     * @param filePath the path to the file
+     * @return a list containing the parsed instances
+     */
     public static List<Person> readData(String filePath) {
         Reader inputStreamReader = null;
         try {
