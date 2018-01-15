@@ -1,6 +1,6 @@
 import model.Person;
 import utils.DataHandler;
-import utils.DataManipulator;
+import utils.DataGenerator;
 
 import java.util.List;
 
@@ -16,8 +16,8 @@ public class Main {
 
         System.out.println(list.size() + " entries were read from file");
 
-        DataManipulator dataManipulator = new DataManipulator(list);
-        List<Person> alteredList = dataManipulator.manipulateData();
+        DataGenerator dataGenerator = new DataGenerator(list);
+        List<Person> alteredList = dataGenerator.manipulateData();
         System.out.println(alteredList.size() - list.size() + " were added as duplicates for existing entries");
         System.out.println("Total number of entries: " + alteredList.size());
         printLine();

@@ -10,10 +10,10 @@ import java.util.Random;
  * Created by iulian_popescu
  * Use this class to alter the initial data by adding duplicates that may contain errors
  */
-public class DataManipulator {
+public class DataGenerator {
     private List<Person> recordsList = new ArrayList<>();
 
-    public  DataManipulator(List<Person> records) {
+    public DataGenerator(List<Person> records) {
         // The initial data doesn't have any duplicated records\
         records.forEach(person -> recordsList.add(new Person(person)));
     }
